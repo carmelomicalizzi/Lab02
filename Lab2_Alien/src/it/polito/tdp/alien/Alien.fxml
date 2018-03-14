@@ -52,7 +52,7 @@
       </VBox>
    </center>
    <bottom>
-      <Button fx:id="btnReset" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#doTranslate" text="Reset" BorderPane.alignment="CENTER_RIGHT">
+      <Button fx:id="btnReset" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#doReset" text="Reset" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
             <Insets bottom="5.0" top="10.0" />
          </BorderPane.margin>
