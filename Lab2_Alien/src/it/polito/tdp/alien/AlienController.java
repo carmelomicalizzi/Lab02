@@ -7,7 +7,7 @@ package it.polito.tdp.alien;
 
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,11 +54,11 @@ public class AlienController {
 			{
 				for(Word w : dizionarioAlieno.dizionarioAlieno) 
 					if(w.getAlienWord().compareTo(paroleInserite[0]) == 0)
-						w.setTranslation(paroleInserite[1]);
+						w.addTranslation(paroleInserite[1]);
 			}
     		
     		dizionarioAlieno.addWord(paroleInserite[0], paroleInserite[1]);
-    		txtResult.appendText("Aggiunta al dizionario la parola "+paroleInserite[0]+" che significa "+paroleInserite[1]+"\n");
+    		txtResult.appendText("Alien: "+paroleInserite[0]+ " - "+"Translation: "+paroleInserite[1]+"\n");
 		}
 		
 		else if (paroleInserite.length == 1)
@@ -67,8 +67,8 @@ public class AlienController {
 				if(dizionarioAlieno.translateWord(txtWord.getText()) == null)
 					txtResult.appendText("Attenzione: traduzione non disponibile"+"\n");
 			
-			String result = new String(dizionarioAlieno.translateWord(txtWord.getText()));
-			txtResult.appendText(result+"\n");
+			List<String> result = new ArrayList<String>(dizionarioAlieno.translateWord(txtWord.getText()));
+			txtResult.appendText(result.toString().substring(1, result.toString().length()-1).replace(", ", "\n")+"\n");
 		}
     }
     
@@ -81,5 +81,6 @@ public class AlienController {
     	txtWord.clear();
 
     }
+    
     
 }
